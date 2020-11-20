@@ -34,6 +34,7 @@ function updateName(){
 function updateButtonText(){
     if(team1.runs.length==6 && team2.runs.length==6){
         console.log("Both teams finished their chances")
+        //console.log(team1.score===team2.score?"It is a draw":)
     }
     else{
         toss=team1.runs.length==6?2:team2.runs.length==6?1:toss;
