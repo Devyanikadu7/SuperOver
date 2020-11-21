@@ -1,10 +1,10 @@
 var team1={
-    name:"CSK",
+    name:"Chennai Super Kings",
     score:0,
     runs:[]
 };
 var team2={
-    name:"MI",
+    name:"Mumbai Indians",
     score:0,
     runs:[]
 };
@@ -32,15 +32,27 @@ function updateName(){
 }
 
 function updateButtonText(){
+    var button = document.getElementById("strikebutton")
+    var result = document.getElementById("result")
+    result.style.visibility=""
+    if(team1.runs.length!=6 || team2.runs.length!=6){
+    toss=team1.runs.length==6?2:team2.runs.length==6?1:toss;}
+    console.log(`${toss===1?team1.name:team2.name} Batting`)
+    document.getElementById("strikebutton").textContent=`${toss===1?team1.name:team2.name} Batting`
     if(team1.runs.length==6 && team2.runs.length==6){
-        console.log("Both teams finished their chances")
+        //console.log("Both teams finished their chances")
         //console.log(team1.score===team2.score?"It is a draw":)
+        button.remove();
+        console.log(team1.score===team2.score?"It is a draw":`${team1.score>team2.score?team1.name:team2.name} Wins`)
+        result.textContent=team1.score===team2.score?"It is a draw":`${team1.score>team2.score?team1.name:team2.name} Wins`
     }
     else{
         toss=team1.runs.length==6?2:team2.runs.length==6?1:toss;
+        console.log(`${toss===1?team1.name:team2.name} Batting`)
     }
 
-    console.log(`${toss===1?team1.name:team2.name} Batting`)
+    // console.log(`${toss===1?team1.name:team2.name} Batting`)
+    // document.getElementById("strikebutton").textContent=`${toss===1?team1.name:team2.name} Batting`
 }
 
 function handleStrike(){
@@ -69,4 +81,18 @@ var calculateScore=(runs)=>{
 function updateScores(){
     console.log("Team1 Score: "+team1.score)
     console.log("Team2 Score: "+team2.score)
+    document.getElementById("team1score").textContent=team1.score;
+    document.getElementById("team2score").textContent=team2.score;
+    updateRuns();
+}
+function updateRuns(){
+    var team1runs = document.getElementById("team1runs").children;
+    var team2runs = document.getElementById("team2runs").children;
+
+   team1.runs.forEach((run,index)=>{
+       team1runs[index].textContent=run
+   }); 
+    team2.runs.forEach((runs,i)=>{
+    team2runs[i].textContent=runs;
+   });
 }

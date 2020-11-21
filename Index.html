@@ -11,8 +11,8 @@
         <div class="row">
             <div class="col">
                 <img src="assests/csk.png" class="pic" alt="CSK" width="150px" height="150px">
-                <p class="name">Chennai Super Kings</p>
-                <div class="row runs">
+                <p class="name" id="team1name">Chennai Super Kings</p>
+                <div class="row runs" id="team1runs">
                     <div>-</div>
                     <div>-</div>
                     <div>-</div>
@@ -21,13 +21,17 @@
                     <div>-</div>
                 </div>
             </div>
-        <div class="score">
-         Score : 0-0
+    <div class="col">
+        <div class=" row score">
+            <div id="team1score">0</div>
+            <div>-</div>
+            <div id="team2score">0</div>
         </div>
+    </div>
         <div class="col">
             <img src="assests/mi.png" class="pic" alt="MI" width="150px" height="150px">
-            <p class="name">Mumbai Indians</p>
-            <div class="row runs">
+            <p class="name" id="team2name">Mumbai Indians</p>
+            <div class="row runs" id="team2runs">
                 <div>-</div>
                 <div>-</div>
                 <div>-</div>
@@ -40,7 +44,7 @@
         <div class="row">
             <button id="strikebutton" onclick="handleStrike()">Submit</button>
         </div>
-
+        <div id="result"></div>
     </div>
     <script src="app.js"></script>
 </body>
